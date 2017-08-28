@@ -13,11 +13,17 @@
 		BF1007891F52732B00BB9FF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1007871F52732B00BB9FF9 /* Main.storyboard */; };
 		BF10078B1F52732B00BB9FF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF10078A1F52732B00BB9FF9 /* Assets.xcassets */; };
 		BF10078E1F52732B00BB9FF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF10078C1F52732B00BB9FF9 /* LaunchScreen.storyboard */; };
+		BF284BA31F54A26000FB15AA /* Session+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284BA21F54A26000FB15AA /* Session+Networking.swift */; };
+		BF284BA71F54A38300FB15AA /* AccessTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284BA61F54A38300FB15AA /* AccessTokenRequest.swift */; };
+		BF284BAA1F54A4ED00FB15AA /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284BA91F54A4ED00FB15AA /* AccessTokenResponse.swift */; };
 		BF62EB5B1F52C609005EF425 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF62EB5A1F52C609005EF425 /* Anime.swift */; };
 		BF6356241F541592005F172C /* SectionedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6356231F541592005F172C /* SectionedCollectionView.swift */; };
 		BF6356261F54273B005F172C /* SectionedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6356251F54273B005F172C /* SectionedCollectionViewCell.swift */; };
 		BF6356281F542E32005F172C /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6356271F542E32005F172C /* AnimeCell.swift */; };
 		BF63562A1F54364E005F172C /* AnimeBrowserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6356291F54364E005F172C /* AnimeBrowserViewModel.swift */; };
+		BF63562C1F545790005F172C /* APIAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF63562B1F545790005F172C /* APIAuthentication.swift */; };
+		BFF5D4931F54929A0008AF88 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D4921F54929A0008AF88 /* Session.swift */; };
+		BFF5D4951F5493260008AF88 /* APIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D4941F5493260008AF88 /* APIBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,11 +36,17 @@
 		BF10078A1F52732B00BB9FF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF10078D1F52732B00BB9FF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF10078F1F52732B00BB9FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF284BA21F54A26000FB15AA /* Session+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Session+Networking.swift"; path = "Networking/Session+Networking.swift"; sourceTree = "<group>"; };
+		BF284BA61F54A38300FB15AA /* AccessTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessTokenRequest.swift; path = Model/RequestModels/AccessTokenRequest.swift; sourceTree = "<group>"; };
+		BF284BA91F54A4ED00FB15AA /* AccessTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessTokenResponse.swift; path = Model/ResponseModels/AccessTokenResponse.swift; sourceTree = "<group>"; };
 		BF62EB5A1F52C609005EF425 /* Anime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Anime.swift; path = Model/Anime.swift; sourceTree = "<group>"; };
 		BF6356231F541592005F172C /* SectionedCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionedCollectionView.swift; path = View/SectionedCollectionView.swift; sourceTree = "<group>"; };
 		BF6356251F54273B005F172C /* SectionedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionedCollectionViewCell.swift; path = View/SectionedCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF6356271F542E32005F172C /* AnimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimeCell.swift; path = View/AnimeCell.swift; sourceTree = "<group>"; };
 		BF6356291F54364E005F172C /* AnimeBrowserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimeBrowserViewModel.swift; path = ViewModel/AnimeBrowserViewModel.swift; sourceTree = "<group>"; };
+		BF63562B1F545790005F172C /* APIAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIAuthentication.swift; path = Networking/APIAuthentication.swift; sourceTree = "<group>"; };
+		BFF5D4921F54929A0008AF88 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Networking/Session.swift; sourceTree = "<group>"; };
+		BFF5D4941F5493260008AF88 /* APIBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIBase.swift; path = Networking/APIBase.swift; sourceTree = "<group>"; };
 		CCB4A68B790B10DF02D639BD /* Pods-NotMyAnimeList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotMyAnimeList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotMyAnimeList/Pods-NotMyAnimeList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,9 +113,37 @@
 			path = NotMyAnimeList;
 			sourceTree = "<group>";
 		};
+		BF284BA41F54A34000FB15AA /* SessionModel */ = {
+			isa = PBXGroup;
+			children = (
+				BFF5D4921F54929A0008AF88 /* Session.swift */,
+				BF284BA21F54A26000FB15AA /* Session+Networking.swift */,
+			);
+			name = SessionModel;
+			sourceTree = "<group>";
+		};
+		BF284BA51F54A35000FB15AA /* RequestModels */ = {
+			isa = PBXGroup;
+			children = (
+				BF284BA61F54A38300FB15AA /* AccessTokenRequest.swift */,
+			);
+			name = RequestModels;
+			sourceTree = "<group>";
+		};
+		BF284BA81F54A4D400FB15AA /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				BF284BA91F54A4ED00FB15AA /* AccessTokenResponse.swift */,
+			);
+			name = ResponseModels;
+			sourceTree = "<group>";
+		};
 		BF62EB531F52C42E005EF425 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF284BA81F54A4D400FB15AA /* ResponseModels */,
+				BF284BA51F54A35000FB15AA /* RequestModels */,
+				BF284BA41F54A34000FB15AA /* SessionModel */,
 				BF1007831F52732B00BB9FF9 /* AppDelegate.swift */,
 				BF62EB5A1F52C609005EF425 /* Anime.swift */,
 			);
@@ -139,6 +179,8 @@
 		BF62EB571F52C453005EF425 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				BF63562B1F545790005F172C /* APIAuthentication.swift */,
+				BFF5D4941F5493260008AF88 /* APIBase.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -302,11 +344,17 @@
 			files = (
 				BF1007861F52732B00BB9FF9 /* AnimeBrowserViewController.swift in Sources */,
 				BF6356241F541592005F172C /* SectionedCollectionView.swift in Sources */,
+				BF284BA31F54A26000FB15AA /* Session+Networking.swift in Sources */,
+				BF284BA71F54A38300FB15AA /* AccessTokenRequest.swift in Sources */,
 				BF1007841F52732B00BB9FF9 /* AppDelegate.swift in Sources */,
+				BFF5D4951F5493260008AF88 /* APIBase.swift in Sources */,
+				BF284BAA1F54A4ED00FB15AA /* AccessTokenResponse.swift in Sources */,
 				BF62EB5B1F52C609005EF425 /* Anime.swift in Sources */,
+				BF63562C1F545790005F172C /* APIAuthentication.swift in Sources */,
 				BF63562A1F54364E005F172C /* AnimeBrowserViewModel.swift in Sources */,
 				BF6356281F542E32005F172C /* AnimeCell.swift in Sources */,
 				BF6356261F54273B005F172C /* SectionedCollectionViewCell.swift in Sources */,
+				BFF5D4931F54929A0008AF88 /* Session.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

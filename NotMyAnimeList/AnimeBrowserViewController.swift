@@ -18,6 +18,13 @@ class AnimeBrowserViewController: UICollectionViewController {
         super.viewDidLoad()
         self.animeBrowserCollectionView.sectionedDataSource = self
         self.animeBrowserCollectionView.sectionedDelegate = self
+        
+        Session.grantCredentials(accessTokenRequest: AccessTokenRequest.defaultRequest) { (session, error) in
+            if session != nil {
+                print("Success")
+                
+            }
+        }
     }
 
 
