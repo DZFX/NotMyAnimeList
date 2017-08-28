@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AeroGearHttp.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AeroGearOAuth2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +47,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1B66CF940D7152F3FFC665156E9D3405</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2F5622F3B18DF497981AB58C6D1FC72F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>61883B6DBCFBF3634B1C9CE8EA51ECAF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>681AB1881A01806980C1BEF3323D53F3</key>
+		<key>7494593E6E8FE4FCC69B7C39A7A1091C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8AAF1DD1DE413A1969136F1BFB030B08</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9502FB01641FBABB78522037E882757B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FBE215D5BC0F9E9B33DB8EC5607ACC35</key>
+		<key>B1B8AB0A7DFB14EB9330E10492DAD1A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BF0D185498A8BDC067A39693FB4BD1B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

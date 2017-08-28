@@ -8,4 +8,5 @@ target 'NotMyAnimeList' do
     pod 'AlamofireObjectMapper', '~> 4.0'
     pod 'Realm', '~> 2.10'
     pod 'RealmSwift','~> 2.10'
+    pod 'AeroGearOAuth2', '~> 1.0.1'
 end

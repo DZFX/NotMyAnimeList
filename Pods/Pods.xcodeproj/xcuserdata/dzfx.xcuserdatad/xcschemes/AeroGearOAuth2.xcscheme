@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7494593E6E8FE4FCC69B7C39A7A1091C'
-               BlueprintName = 'RealmSwift'
+               BlueprintIdentifier = 'BF0D185498A8BDC067A39693FB4BD1B9'
+               BlueprintName = 'AeroGearOAuth2'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RealmSwift.framework'>
+               BuildableName = 'AeroGearOAuth2.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
