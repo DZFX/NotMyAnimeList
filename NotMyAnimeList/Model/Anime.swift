@@ -12,5 +12,10 @@ import ObjectMapper
 
 class Anime: Object {
 
+    var name: String?
     
+    convenience init(name: String? = nil) {
+        self.init()
+        self.name = name
+    }
 }
