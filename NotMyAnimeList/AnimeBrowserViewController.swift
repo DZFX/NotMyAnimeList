@@ -18,13 +18,17 @@ class AnimeBrowserViewController: UICollectionViewController {
         super.viewDidLoad()
         self.animeBrowserCollectionView.sectionedDataSource = self
         self.animeBrowserCollectionView.sectionedDelegate = self
+        self.animeBrowserViewModel.delegate = self
         
         Session.grantCredentials(accessTokenRequest: AccessTokenRequest.defaultRequest) { (session, error) in
             if session != nil {
                 print("Success")
                 
+                self.animeBrowserViewModel.retrieveGenres()
             }
         }
+        
+        
     }
 
 
@@ -56,5 +60,9 @@ extension AnimeBrowserViewController: SectionedCollectionViewDelegate {
     
 }
 
-
+extension AnimeBrowserViewController: AnimeBrowserViewModelDelegate {
+    func animeBrowserViewModelFinishedFetchingGenreList(animeBrowserViewModel: AnimeBrowserViewModel) {
+        self.animeBrowserCollectionView.reloadData()
+    }
+}
 

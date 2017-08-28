@@ -8,10 +8,17 @@
 
 import UIKit
 
-typealias AnimeData = [(genre: String, animeList: [Anime])]
+typealias AnimeGenre = (genre: String, animeList: [Anime])
+typealias AnimeData = [AnimeGenre]
+
+protocol AnimeBrowserViewModelDelegate: class {
+    func animeBrowserViewModelFinishedFetchingGenreList(animeBrowserViewModel: AnimeBrowserViewModel)
+}
 
 class AnimeBrowserViewModel: NSObject {
 
+    weak var delegate: AnimeBrowserViewModelDelegate?
+    
     var animeData: AnimeData = [
         (genre: "Action", animeList: [
             Anime(name: "Redline"),
@@ -86,4 +93,15 @@ class AnimeBrowserViewModel: NSObject {
             Anime(name: "Ghost in the Shell")
             ])
     ]
+    
+    func retrieveGenres() {
+        Genre.fetchGenreList { (genreList, error) in
+            if let _genreList = genreList {
+                self.animeData = _genreList.map({ (genre) -> AnimeGenre in
+                    return (genre: genre.genre ?? "", animeList: [])
+                })
+                self.delegate?.animeBrowserViewModelFinishedFetchingGenreList(animeBrowserViewModel: self)
+            }
+        }
+    }
 }
