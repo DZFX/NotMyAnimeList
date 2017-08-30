@@ -54,7 +54,9 @@ extension AnimeBrowserViewController: SectionedCollectionViewDataSource {
 }
 
 extension AnimeBrowserViewController: SectionedCollectionViewDelegate {
-    
+    func sectionedCollectionView(_ collectionView: SectionedCollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(self.animeBrowserViewModel.animeTitleAt(indexPath: indexPath))
+    }
 }
 
 extension AnimeBrowserViewController: AnimeBrowserViewModelDelegate {

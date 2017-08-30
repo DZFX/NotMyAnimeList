@@ -31,5 +31,5 @@ class AnimeCell: UICollectionViewCell {
     }
     
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
 }

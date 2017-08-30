@@ -12,7 +12,7 @@ import AlamofireObjectMapper
 
 extension Genre {
     static func fetchGenreList(completion: @escaping (_ result: [Genre]?, _ error: Error?) -> ()) {
-        APIServices.request(APIServices.ServiceEndpoints.GenreList()).responseArray { (response: DataResponse<[Genre]>) in
+        APIServices.request(APIServices.ServiceEndpoints.GenreList).responseArray { (response: DataResponse<[Genre]>) in
             if let _error = response.error {
                 completion(nil, _error)
             } else {

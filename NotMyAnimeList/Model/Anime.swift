@@ -22,7 +22,7 @@ class Anime: Object {
     dynamic var seriesDescription: String?
     dynamic var averageScore: String?
     dynamic var imageURL: String?
-    dynamic var image: UIImage?
+    var image: UIImage?
     
     var totalEpisodes: Int?
     
@@ -58,7 +58,7 @@ class Anime: Object {
     }
     
     override class func ignoredProperties() -> [String] {
-        return ["genres"]
+        return ["genres","image"]
     }
     
     fileprivate func transformOfInt() -> TransformOf<String, Int> {
@@ -90,7 +90,7 @@ extension Anime: Mappable {
         self.seriesDescription <- map["description"]
         self.genres <- map["genres"]
         self.averageScore <- (map["average_score"], transformOfDouble())
-        self.imageURL <- map["image_url_med"]
+        self.imageURL <- map["image_url_lge"]
         
         self.totalEpisodes <- map["total_episodes"]
     }

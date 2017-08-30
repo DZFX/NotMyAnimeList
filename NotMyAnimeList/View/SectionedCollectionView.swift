@@ -16,7 +16,7 @@ protocol SectionedCollectionViewDataSource: UICollectionViewDataSource {
 }
 
 protocol SectionedCollectionViewDelegate: UICollectionViewDelegate {
-    
+    func sectionedCollectionView(_ collectionView: SectionedCollectionView, didSelectItemAt indexPath: IndexPath)
 }
 
 private let SectionedCollectionCellIdentifier = "SectionedCollectionCell"
@@ -31,6 +31,16 @@ class SectionedCollectionView: UICollectionView {
         super.init(coder: aDecoder)
         self.dataSource = self
         self.delegate = self
+    }
+    
+    func isVisible(indexPath: IndexPath) -> Bool {
+        let indexPathInVerticalCollectionView = IndexPath(item: 0, section: indexPath.section)
+        if let cellWithHorizontalCollectionView = self.cellForItem(at: indexPathInVerticalCollectionView) as? SectionedCollectionViewCell {
+            let indexPathInHorizontalCollectionView = IndexPath(item: indexPath.item, section: 0)
+            return cellWithHorizontalCollectionView.collectionView.indexPathsForVisibleItems.contains(indexPathInHorizontalCollectionView)
+        }
+        
+        return false
     }
     
     override func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> UICollectionViewCell {
@@ -95,7 +105,7 @@ extension SectionedCollectionView: SectionedCollectionViewCellDataSource {
 
 extension SectionedCollectionView: SectionedCollectionViewCellDelegate {
     func sectionedCollectionCell(_ sectionedCollectionCell: SectionedCollectionViewCell, didSelectItemAtIndexPath indexPath: IndexPath) {
-        print("Tapped row: \(indexPath.section), item: \(indexPath.item)")
+        self.sectionedDelegate?.sectionedCollectionView(self, didSelectItemAt: indexPath)
     }
     
     func sectionedCollectionCell(_ sectionedCollectionCell: SectionedCollectionViewCell, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {

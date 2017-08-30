@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 typealias AnimeGenre = (genre: Genre, animeList: [Anime])
 typealias AnimeData = [AnimeGenre]
@@ -19,6 +20,7 @@ protocol AnimeBrowserViewModelDelegate: class {
 class AnimeBrowserViewModel: NSObject {
 
     weak var delegate: AnimeBrowserViewModelDelegate?
+    weak var animeBrowserCollectionView: SectionedCollectionView?
     
     var animeData: AnimeData = AnimeData()
     
@@ -32,6 +34,30 @@ class AnimeBrowserViewModel: NSObject {
     
     func genreInSection(_ section: Int) -> String {
         return self.animeData[section].genre.genre ?? ""
+    }
+    
+    func animeAt(indexPath: IndexPath) -> Anime {
+        return self.animeData[indexPath.section].animeList[indexPath.item]
+    }
+    
+    func animeTitleAt(indexPath: IndexPath) -> String {
+        return self.animeAt(indexPath: indexPath).titleEnglish ?? ""
+    }
+    
+    private func imageFromAnimeAt(indexPath: IndexPath, retrievedImageHandler: @escaping (_ image: UIImage?, _ downloaded: Bool) -> ()) {
+        let anime = self.animeData[indexPath.section].animeList[indexPath.item]
+        if let _image = anime.image {
+            retrievedImageHandler(_image, false)
+        } else {
+            anime.downloadImage(completion: { (image, error) in
+                if let _downloadedImage = image {
+                    retrievedImageHandler(_downloadedImage, true)
+                } else {
+                    retrievedImageHandler(nil, true)
+                }
+            })
+        }
+        
     }
     
     func retrieveGenres() {
@@ -63,6 +89,13 @@ class AnimeBrowserViewModel: NSObject {
     func sectionedCollectionView(collectionView: SectionedCollectionView, animeCellForRowAtIndexPath indexPath: IndexPath) -> AnimeCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnimeCell", for: indexPath) as? AnimeCell {
             cell.name = self.animeData[indexPath.section].animeList[indexPath.item].titleEnglish
+            cell.image = UIImage()
+            self.imageFromAnimeAt(indexPath: indexPath) {
+                collectionView.collectionViewLayout.invalidateLayout()
+                if !$1 || collectionView.isVisible(indexPath: indexPath) {
+                    cell.image = $0
+                }
+            }
             return cell
         }
         return AnimeCell()

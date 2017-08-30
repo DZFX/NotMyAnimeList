@@ -77,6 +77,7 @@
                                                         <constraint firstItem="6hu-LD-oWh" firstAttribute="leading" secondItem="4wZ-Ny-HfH" secondAttribute="leading" id="pQI-l9-N06"/>
                                                     </constraints>
                                                     <connections>
+                                                        <outlet property="imageView" destination="6hu-LD-oWh" id="aEt-FX-EFO"/>
                                                         <outlet property="nameLabel" destination="OOW-8Q-thE" id="WAj-pl-Bs6"/>
                                                     </connections>
                                                 </collectionViewCell>

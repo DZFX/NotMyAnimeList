@@ -56,8 +56,4 @@ class APIServices: APIAuthentication {
     static func request(_ endpoint: ServiceEndpoints) -> DataRequest {
         return Alamofire.request(endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil)
     }
-    
-    static func download(_ endpoint: ServiceEndpoints.Type) -> DownloadRequest {
-        
-    }
 }

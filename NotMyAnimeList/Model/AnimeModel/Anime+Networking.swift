@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 import AlamofireObjectMapper
 import RealmSwift
 
@@ -34,8 +35,19 @@ extension Anime {
         }
     }
     
-    func downloadImage() {
-        
+    func downloadImage(completion: @escaping (_ image: UIImage?, _ error: Error?) -> ()) {
+        APIServices.request(APIServices.ServiceEndpoints.ImageDownload(self.imageURL ?? "")).responseImage { (response: DataResponse<Image>) in
+            if let _error = response.error {
+                completion(nil, _error)
+            } else {
+                if let _image = response.value {
+                    self.saveImage(image: _image)
+                    completion(_image, nil)
+                } else {
+                    completion(nil, NSError(domain: "Anime.image", code: 0, userInfo: [NSLocalizedDescriptionKey: "Parsing Error"]))
+                }
+            }
+        }
     }
     
     private static func persist(animeList: [Anime]) {
@@ -46,6 +58,19 @@ extension Anime {
             }
         } catch let error {
             print("ERROR: - There was a problem while trying to persist [Anime] data")
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func saveImage(image: UIImage) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                self.image = image
+                realm.add(self, update: true)
+            }
+        } catch let error {
+            print("ERROR: - There was a problem while trying to persist Anime.image data")
             print(error.localizedDescription)
         }
     }
