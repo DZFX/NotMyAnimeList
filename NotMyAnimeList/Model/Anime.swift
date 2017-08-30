@@ -19,12 +19,9 @@ class Anime: Object {
     dynamic var titleJapanese: String?
     dynamic var mediaType: String?
     dynamic var season: String?
-    dynamic var seriesDescription: String?
     dynamic var averageScore: String?
     dynamic var imageURL: String?
     var image: UIImage?
-    
-    var totalEpisodes: Int?
     
     var genres: [String] {
         get {
@@ -44,6 +41,12 @@ class Anime: Object {
     
     let _backingGenres = List<RealmString>()
     
+    // MARK: - Full detail
+    dynamic var seriesDescription: String?
+    dynamic var bannerURL: String?
+    var banner: UIImage?
+    dynamic var totalEpisodes: String?
+    
     convenience init(name: String) {
         self.init()
         self.titleEnglish = name
@@ -58,7 +61,7 @@ class Anime: Object {
     }
     
     override class func ignoredProperties() -> [String] {
-        return ["genres","image"]
+        return ["genres","image", "banner"]
     }
     
     fileprivate func transformOfInt() -> TransformOf<String, Int> {
@@ -92,6 +95,7 @@ extension Anime: Mappable {
         self.averageScore <- (map["average_score"], transformOfDouble())
         self.imageURL <- map["image_url_lge"]
         
-        self.totalEpisodes <- map["total_episodes"]
+        self.totalEpisodes <- (map["total_episodes"], transformOfInt())
+        self.bannerURL <- map["image_url_banner"]
     }
 }

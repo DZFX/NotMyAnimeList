@@ -35,6 +35,35 @@ extension Anime {
         }
     }
     
+    private static func persist(animeList: [Anime]) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(animeList, update: true)
+            }
+        } catch let error {
+            print("ERROR: - There was a problem while trying to persist [Anime] data")
+            print(error.localizedDescription)
+        }
+    }
+    
+    func downloadFullDetail(completion: @escaping (_ anime: Anime?, _ error: Error?) -> ()) {
+        APIServices.request(APIServices.ServiceEndpoints.Series(self, "anime")).responseObject { (response: DataResponse<Anime>) in
+            if let _error = response.error {
+                completion(nil, _error)
+            } else {
+                if let _anime = response.value {
+                    self.updateData(anime: _anime)
+                    do {
+                        completion(try Realm().object(ofType: Anime.self, forPrimaryKey: self.ID), nil)
+                    } catch let error {
+                        completion(nil, error)
+                    }
+                }
+            }
+        }
+    }
+    
     func downloadImage(completion: @escaping (_ image: UIImage?, _ error: Error?) -> ()) {
         APIServices.request(APIServices.ServiceEndpoints.ImageDownload(self.imageURL ?? "")).responseImage { (response: DataResponse<Image>) in
             if let _error = response.error {
@@ -50,14 +79,14 @@ extension Anime {
         }
     }
     
-    private static func persist(animeList: [Anime]) {
+    private func updateData(anime: Anime) {
         do {
             let realm = try Realm()
             try realm.write {
-                realm.add(animeList, update: true)
+                realm.add(anime, update: true)
             }
         } catch let error {
-            print("ERROR: - There was a problem while trying to persist [Anime] data")
+            print("ERROR: - There was a problem while trying to update Anime object")
             print(error.localizedDescription)
         }
     }

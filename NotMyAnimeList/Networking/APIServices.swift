@@ -16,6 +16,7 @@ class APIServices: APIAuthentication {
         case ImageDownload(String)
         case GenreList
         case Browse(BrowseRequest, String)
+        case Series(Anime, String)
         
         public var method: HTTPMethod {
             switch self {
@@ -24,6 +25,8 @@ class APIServices: APIAuthentication {
             case .GenreList:
                 return HTTPMethod.get
             case .Browse:
+                return HTTPMethod.get
+            case .Series:
                 return HTTPMethod.get
             }
         }
@@ -36,6 +39,8 @@ class APIServices: APIAuthentication {
                 return baseURL + "/genre_list"
             case .Browse(_, let type):
                 return baseURL + "/browse/\(type)"
+            case .Series(let anime, let type):
+                return baseURL + "/\(type)/\(anime.ID!)/page"
             }
         }
         
@@ -49,6 +54,8 @@ class APIServices: APIAuthentication {
                 var jsonDict = request.toJSON()
                 jsonDict["access_token"] = Session.current.accessToken ?? ""
                 return jsonDict
+            case .Series(_, _):
+                return ["access_token": Session.current.accessToken ?? ""]
             }
         }
     }

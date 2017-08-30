@@ -22,6 +22,9 @@
 		BF284BA31F54A26000FB15AA /* Session+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284BA21F54A26000FB15AA /* Session+Networking.swift */; };
 		BF284BA71F54A38300FB15AA /* AccessTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284BA61F54A38300FB15AA /* AccessTokenRequest.swift */; };
 		BF284BAA1F54A4ED00FB15AA /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284BA91F54A4ED00FB15AA /* AccessTokenResponse.swift */; };
+		BF615CAA1F572BCE00568711 /* AnimeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF615CA91F572BCE00568711 /* AnimeInfoCell.swift */; };
+		BF615CAC1F572D1800568711 /* AnimeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF615CAB1F572D1800568711 /* AnimeDetailViewController.swift */; };
+		BF615CAE1F572ED000568711 /* AnimeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF615CAD1F572ED000568711 /* AnimeDetailViewModel.swift */; };
 		BF62EB5B1F52C609005EF425 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF62EB5A1F52C609005EF425 /* Anime.swift */; };
 		BF6356241F541592005F172C /* SectionedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6356231F541592005F172C /* SectionedCollectionView.swift */; };
 		BF6356261F54273B005F172C /* SectionedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6356251F54273B005F172C /* SectionedCollectionViewCell.swift */; };
@@ -51,6 +54,9 @@
 		BF284BA21F54A26000FB15AA /* Session+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Session+Networking.swift"; path = "Networking/Session+Networking.swift"; sourceTree = "<group>"; };
 		BF284BA61F54A38300FB15AA /* AccessTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessTokenRequest.swift; path = Model/RequestModels/AccessTokenRequest.swift; sourceTree = "<group>"; };
 		BF284BA91F54A4ED00FB15AA /* AccessTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessTokenResponse.swift; path = Model/ResponseModels/AccessTokenResponse.swift; sourceTree = "<group>"; };
+		BF615CA91F572BCE00568711 /* AnimeInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimeInfoCell.swift; path = View/AnimeInfoCell.swift; sourceTree = "<group>"; };
+		BF615CAB1F572D1800568711 /* AnimeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimeDetailViewController.swift; path = Controller/AnimeDetailViewController.swift; sourceTree = "<group>"; };
+		BF615CAD1F572ED000568711 /* AnimeDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimeDetailViewModel.swift; path = ViewModel/AnimeDetailViewModel.swift; sourceTree = "<group>"; };
 		BF62EB5A1F52C609005EF425 /* Anime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Anime.swift; path = Model/Anime.swift; sourceTree = "<group>"; };
 		BF6356231F541592005F172C /* SectionedCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionedCollectionView.swift; path = View/SectionedCollectionView.swift; sourceTree = "<group>"; };
 		BF6356251F54273B005F172C /* SectionedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionedCollectionViewCell.swift; path = View/SectionedCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 				BF6356231F541592005F172C /* SectionedCollectionView.swift */,
 				BF6356251F54273B005F172C /* SectionedCollectionViewCell.swift */,
 				BF6356271F542E32005F172C /* AnimeCell.swift */,
+				BF615CA91F572BCE00568711 /* AnimeInfoCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -196,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				BF6356291F54364E005F172C /* AnimeBrowserViewModel.swift */,
+				BF615CAD1F572ED000568711 /* AnimeDetailViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1007851F52732B00BB9FF9 /* AnimeBrowserViewController.swift */,
+				BF615CAB1F572D1800568711 /* AnimeDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -382,7 +391,9 @@
 				BF6356241F541592005F172C /* SectionedCollectionView.swift in Sources */,
 				BF284BA31F54A26000FB15AA /* Session+Networking.swift in Sources */,
 				BF284BA71F54A38300FB15AA /* AccessTokenRequest.swift in Sources */,
+				BF615CAA1F572BCE00568711 /* AnimeInfoCell.swift in Sources */,
 				BF1007841F52732B00BB9FF9 /* AppDelegate.swift in Sources */,
+				BF615CAE1F572ED000568711 /* AnimeDetailViewModel.swift in Sources */,
 				BF194E731F54D1E000B0228C /* Genre+Networking.swift in Sources */,
 				BF194E7A1F551F2F00B0228C /* RealmExtensions.swift in Sources */,
 				BFF5D4951F5493260008AF88 /* APIBase.swift in Sources */,
@@ -395,6 +406,7 @@
 				BF63562A1F54364E005F172C /* AnimeBrowserViewModel.swift in Sources */,
 				BF6356281F542E32005F172C /* AnimeCell.swift in Sources */,
 				BF6356261F54273B005F172C /* SectionedCollectionViewCell.swift in Sources */,
+				BF615CAC1F572D1800568711 /* AnimeDetailViewController.swift in Sources */,
 				BF194E6D1F54C50E00B0228C /* APIServices.swift in Sources */,
 				BFF5D4931F54929A0008AF88 /* Session.swift in Sources */,
 			);

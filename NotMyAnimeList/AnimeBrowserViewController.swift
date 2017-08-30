@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate let animeDetailSegue = "AnimeDetailSegue"
+
 class AnimeBrowserViewController: UICollectionViewController {
 
     let animeBrowserViewModel = AnimeBrowserViewModel()
@@ -33,6 +35,12 @@ class AnimeBrowserViewController: UICollectionViewController {
         self.animeBrowserCollectionView.sectionedDelegate = self
         self.animeBrowserViewModel.delegate = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let animeDetailVC = segue.destination as? AnimeDetailViewController {
+            animeDetailVC.animeDetailViewModel.anime = sender as? Anime
+        }
+    }
 }
 
 extension AnimeBrowserViewController: SectionedCollectionViewDataSource {
@@ -56,6 +64,7 @@ extension AnimeBrowserViewController: SectionedCollectionViewDataSource {
 extension AnimeBrowserViewController: SectionedCollectionViewDelegate {
     func sectionedCollectionView(_ collectionView: SectionedCollectionView, didSelectItemAt indexPath: IndexPath) {
         print(self.animeBrowserViewModel.animeTitleAt(indexPath: indexPath))
+        self.performSegue(withIdentifier: animeDetailSegue, sender: self.animeBrowserViewModel.animeAt(indexPath: indexPath))
     }
 }
 
