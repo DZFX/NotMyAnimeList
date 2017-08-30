@@ -24,12 +24,20 @@ class Genre: Object {
     override class func primaryKey() -> String? {
         return "ID"
     }
+    
+    fileprivate func transformOfInt() -> TransformOf<String, Int> {
+        return TransformOf<String, Int>(fromJSON: { (integer: Int?) -> String? in
+            return String(integer ?? 0)
+        }, toJSON: { (string: String?) -> Int? in
+            return Int(string ?? "")
+        })
+    }
 }
 
 extension Genre: Mappable {
     func mapping(map: Map) {
         self.genre <- map["genre"]
-        self.ID <- map["id"]
+        self.ID <- (map["id"], transformOfInt())
     }
 }
 

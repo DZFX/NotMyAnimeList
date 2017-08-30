@@ -12,7 +12,6 @@
         <!--Browse-->
         <scene sceneID="SMD-2a-BCv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ER2-FM-Add" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="Qzi-sJ-XbZ" customClass="AnimeBrowserViewController" customModule="NotMyAnimeList" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AW2-c6-x6s" customClass="SectionedCollectionView" customModule="NotMyAnimeList" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -61,6 +60,9 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6hu-LD-oWh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="87"/>
+                                                            </imageView>
                                                         </subviews>
                                                     </view>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,7 +70,11 @@
                                                         <constraint firstAttribute="trailing" secondItem="OOW-8Q-thE" secondAttribute="trailing" id="Cg2-xR-leE"/>
                                                         <constraint firstAttribute="bottom" secondItem="OOW-8Q-thE" secondAttribute="bottom" id="GlK-VN-EGS"/>
                                                         <constraint firstItem="OOW-8Q-thE" firstAttribute="leading" secondItem="4wZ-Ny-HfH" secondAttribute="leading" id="GoH-1Q-dwV"/>
+                                                        <constraint firstAttribute="bottom" secondItem="6hu-LD-oWh" secondAttribute="bottom" id="X9U-lZ-EmW"/>
+                                                        <constraint firstItem="6hu-LD-oWh" firstAttribute="top" secondItem="4wZ-Ny-HfH" secondAttribute="top" id="elk-sp-thU"/>
                                                         <constraint firstItem="OOW-8Q-thE" firstAttribute="top" secondItem="4wZ-Ny-HfH" secondAttribute="top" id="j9p-Ke-Kwt"/>
+                                                        <constraint firstAttribute="trailing" secondItem="6hu-LD-oWh" secondAttribute="trailing" id="mN2-0h-5Fw"/>
+                                                        <constraint firstItem="6hu-LD-oWh" firstAttribute="leading" secondItem="4wZ-Ny-HfH" secondAttribute="leading" id="pQI-l9-N06"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="nameLabel" destination="OOW-8Q-thE" id="WAj-pl-Bs6"/>
@@ -103,6 +109,7 @@
                         <outlet property="animeBrowserCollectionView" destination="AW2-c6-x6s" id="eeb-O8-sF1"/>
                     </connections>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ER2-FM-Add" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1687.2" y="92.203898050974516"/>
         </scene>
@@ -112,6 +119,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dSu-oT-j9w" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="LLX-FO-3JI">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

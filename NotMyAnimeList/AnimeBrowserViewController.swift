@@ -12,13 +12,12 @@ class AnimeBrowserViewController: UICollectionViewController {
 
     let animeBrowserViewModel = AnimeBrowserViewModel()
     
+    
     @IBOutlet weak var animeBrowserCollectionView: SectionedCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.animeBrowserCollectionView.sectionedDataSource = self
-        self.animeBrowserCollectionView.sectionedDelegate = self
-        self.animeBrowserViewModel.delegate = self
+        self.setup()
         
         Session.grantCredentials(accessTokenRequest: AccessTokenRequest.defaultRequest) { (session, error) in
             if session != nil {
@@ -27,32 +26,30 @@ class AnimeBrowserViewController: UICollectionViewController {
                 self.animeBrowserViewModel.retrieveGenres()
             }
         }
-        
-        
     }
-
-
+    
+    private func setup() {
+        self.animeBrowserCollectionView.sectionedDataSource = self
+        self.animeBrowserCollectionView.sectionedDelegate = self
+        self.animeBrowserViewModel.delegate = self
+    }
 }
 
 extension AnimeBrowserViewController: SectionedCollectionViewDataSource {
     func numberOfSections(_ collectionView: SectionedCollectionView) -> Int {
-        return self.animeBrowserViewModel.animeData.count
+        return self.animeBrowserViewModel.numberOfGenres
     }
     
     func sectionedCollectionView(_ collectionView: SectionedCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.animeBrowserViewModel.animeData[section].animeList.count
+        return self.animeBrowserViewModel.animeItemsInSection(section)
     }
     
     func sectionedCollectionView(_ collectionView: SectionedCollectionView, titleForSection section: Int) -> String? {
-        return self.animeBrowserViewModel.animeData[section].genre
+        return self.animeBrowserViewModel.genreInSection(section)
     }
     
     func sectionedCollectionView(_ collectionView: SectionedCollectionView, rowCollectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnimeCell", for: indexPath) as? AnimeCell {
-            cell.name = self.animeBrowserViewModel.animeData[indexPath.section].animeList[indexPath.item].name
-            return cell
-        }
-        return UICollectionViewCell()
+        return self.animeBrowserViewModel.sectionedCollectionView(collectionView: collectionView, animeCellForRowAtIndexPath: indexPath)
     }
 }
 
@@ -63,6 +60,11 @@ extension AnimeBrowserViewController: SectionedCollectionViewDelegate {
 extension AnimeBrowserViewController: AnimeBrowserViewModelDelegate {
     func animeBrowserViewModelFinishedFetchingGenreList(animeBrowserViewModel: AnimeBrowserViewModel) {
         self.animeBrowserCollectionView.reloadData()
+        self.animeBrowserViewModel.retrieveLists()
+    }
+    
+    func animeBrowserViewModel(animeBrowserViewModel: AnimeBrowserViewModel, didFinishLoadingGenreAtIndex index: Int) {
+        self.animeBrowserCollectionView.reloadSections([index])
     }
 }
 

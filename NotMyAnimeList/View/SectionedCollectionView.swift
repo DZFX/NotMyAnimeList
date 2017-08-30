@@ -19,6 +19,8 @@ protocol SectionedCollectionViewDelegate: UICollectionViewDelegate {
     
 }
 
+private let SectionedCollectionCellIdentifier = "SectionedCollectionCell"
+
 class SectionedCollectionView: UICollectionView {
     
     var sectionedDataSource: SectionedCollectionViewDataSource?
@@ -32,10 +34,17 @@ class SectionedCollectionView: UICollectionView {
     }
     
     override func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> UICollectionViewCell {
-        if let collectionViewFromActualRow = self.cellForItem(at: IndexPath(item: 0, section: indexPath.section)) as? SectionedCollectionViewCell {
+        if identifier != SectionedCollectionCellIdentifier {
             let correctedIndexPathForEmbeddedCollectionView = IndexPath(item: indexPath.item, section: 0)
-            return collectionViewFromActualRow.collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: correctedIndexPathForEmbeddedCollectionView)
+            if let collectionViewFromActualRow = self.cellForItem(at: IndexPath(item: 0, section: indexPath.section)) as? SectionedCollectionViewCell {
+                
+                return collectionViewFromActualRow.collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: correctedIndexPathForEmbeddedCollectionView)
+            }
+            if let cell = self.visibleCells.first as? SectionedCollectionViewCell{
+                return cell.collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: IndexPath(item: 0, section: 0))
+            }
         }
+        
         return super.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
     }
 }
@@ -56,6 +65,7 @@ extension SectionedCollectionView: UICollectionViewDataSource {
             cell.delegate = self
             cell.section = indexPath.section
             cell.genre = self.sectionedDataSource?.sectionedCollectionView(self, titleForSection: cell.section)
+            cell.collectionView.reloadData()
             return cell
         } else {
             return UICollectionViewCell()

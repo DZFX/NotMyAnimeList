@@ -16,6 +16,9 @@
 		BF194E6D1F54C50E00B0228C /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF194E6C1F54C50E00B0228C /* APIServices.swift */; };
 		BF194E711F54CF1700B0228C /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF194E701F54CF1700B0228C /* Genre.swift */; };
 		BF194E731F54D1E000B0228C /* Genre+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF194E721F54D1E000B0228C /* Genre+Networking.swift */; };
+		BF194E751F54DCC100B0228C /* BrowseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF194E741F54DCC100B0228C /* BrowseRequest.swift */; };
+		BF194E781F54EB2400B0228C /* Anime+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF194E771F54EB2400B0228C /* Anime+Networking.swift */; };
+		BF194E7A1F551F2F00B0228C /* RealmExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF194E791F551F2F00B0228C /* RealmExtensions.swift */; };
 		BF284BA31F54A26000FB15AA /* Session+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284BA21F54A26000FB15AA /* Session+Networking.swift */; };
 		BF284BA71F54A38300FB15AA /* AccessTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284BA61F54A38300FB15AA /* AccessTokenRequest.swift */; };
 		BF284BAA1F54A4ED00FB15AA /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF284BA91F54A4ED00FB15AA /* AccessTokenResponse.swift */; };
@@ -42,6 +45,9 @@
 		BF194E6C1F54C50E00B0228C /* APIServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIServices.swift; path = Networking/APIServices.swift; sourceTree = "<group>"; };
 		BF194E701F54CF1700B0228C /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Genre.swift; path = Model/Genre.swift; sourceTree = "<group>"; };
 		BF194E721F54D1E000B0228C /* Genre+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Genre+Networking.swift"; sourceTree = "<group>"; };
+		BF194E741F54DCC100B0228C /* BrowseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrowseRequest.swift; path = Model/RequestModels/BrowseRequest.swift; sourceTree = "<group>"; };
+		BF194E771F54EB2400B0228C /* Anime+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Anime+Networking.swift"; path = "Model/AnimeModel/Anime+Networking.swift"; sourceTree = "<group>"; };
+		BF194E791F551F2F00B0228C /* RealmExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmExtensions.swift; sourceTree = "<group>"; };
 		BF284BA21F54A26000FB15AA /* Session+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Session+Networking.swift"; path = "Networking/Session+Networking.swift"; sourceTree = "<group>"; };
 		BF284BA61F54A38300FB15AA /* AccessTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessTokenRequest.swift; path = Model/RequestModels/AccessTokenRequest.swift; sourceTree = "<group>"; };
 		BF284BA91F54A4ED00FB15AA /* AccessTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessTokenResponse.swift; path = Model/ResponseModels/AccessTokenResponse.swift; sourceTree = "<group>"; };
@@ -128,6 +134,15 @@
 			name = GenreModel;
 			sourceTree = "<group>";
 		};
+		BF194E761F54EB0800B0228C /* AnimeModel */ = {
+			isa = PBXGroup;
+			children = (
+				BF62EB5A1F52C609005EF425 /* Anime.swift */,
+				BF194E771F54EB2400B0228C /* Anime+Networking.swift */,
+			);
+			name = AnimeModel;
+			sourceTree = "<group>";
+		};
 		BF284BA41F54A34000FB15AA /* SessionModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				BF284BA61F54A38300FB15AA /* AccessTokenRequest.swift */,
+				BF194E741F54DCC100B0228C /* BrowseRequest.swift */,
 			);
 			name = RequestModels;
 			sourceTree = "<group>";
@@ -156,12 +172,12 @@
 		BF62EB531F52C42E005EF425 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF194E761F54EB0800B0228C /* AnimeModel */,
 				BF194E6F1F54CEE800B0228C /* GenreModel */,
 				BF284BA81F54A4D400FB15AA /* ResponseModels */,
 				BF284BA51F54A35000FB15AA /* RequestModels */,
 				BF284BA41F54A34000FB15AA /* SessionModel */,
 				BF1007831F52732B00BB9FF9 /* AppDelegate.swift */,
-				BF62EB5A1F52C609005EF425 /* Anime.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -205,6 +221,7 @@
 		BF62EB581F52C45E005EF425 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				BF194E791F551F2F00B0228C /* RealmExtensions.swift */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -365,7 +382,10 @@
 				BF284BA71F54A38300FB15AA /* AccessTokenRequest.swift in Sources */,
 				BF1007841F52732B00BB9FF9 /* AppDelegate.swift in Sources */,
 				BF194E731F54D1E000B0228C /* Genre+Networking.swift in Sources */,
+				BF194E7A1F551F2F00B0228C /* RealmExtensions.swift in Sources */,
 				BFF5D4951F5493260008AF88 /* APIBase.swift in Sources */,
+				BF194E781F54EB2400B0228C /* Anime+Networking.swift in Sources */,
+				BF194E751F54DCC100B0228C /* BrowseRequest.swift in Sources */,
 				BF284BAA1F54A4ED00FB15AA /* AccessTokenResponse.swift in Sources */,
 				BF62EB5B1F52C609005EF425 /* Anime.swift in Sources */,
 				BF63562C1F545790005F172C /* APIAuthentication.swift in Sources */,

@@ -20,5 +20,16 @@ class AnimeCell: UICollectionViewCell {
         }
     }
     
+    var image: UIImage? {
+        set {
+            self.imageView.image = newValue
+        }
+        
+        get {
+            return self.imageView.image
+        }
+    }
+    
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
 }
