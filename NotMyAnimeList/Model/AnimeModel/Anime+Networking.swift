@@ -83,6 +83,7 @@ extension Anime {
         do {
             let realm = try Realm()
             try realm.write {
+                self.seriesDescription = self.seriesDescription?.replacingOccurrences(of: "<br>", with: "")
                 realm.add(anime, update: true)
             }
         } catch let error {

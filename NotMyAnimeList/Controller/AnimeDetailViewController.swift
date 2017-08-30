@@ -70,4 +70,8 @@ extension AnimeDetailViewController: AnimeDetailViewModelDelegate {
     func animeDetailViewModelDidFinishDownloadingDetals(animeDetailViewModel: AnimeDetailViewModel) {
         self.reloadContent()
     }
+    
+    func animeDetailViewModelDidDownloadImage(animeDetailViewModel: AnimeDetailViewModel) {
+        self.reloadContent()
+    }
 }

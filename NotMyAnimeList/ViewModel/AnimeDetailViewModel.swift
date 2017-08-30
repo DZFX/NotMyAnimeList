@@ -14,6 +14,7 @@ fileprivate let animeDetailCellIdentifier = "AnimeDetailCellIdentifier"
 
 protocol AnimeDetailViewModelDelegate: class {
     func animeDetailViewModelDidFinishDownloadingDetals(animeDetailViewModel: AnimeDetailViewModel)
+    func animeDetailViewModelDidDownloadImage(animeDetailViewModel: AnimeDetailViewModel)
 }
 
 class AnimeDetailViewModel: NSObject {
@@ -31,18 +32,29 @@ class AnimeDetailViewModel: NSObject {
     }
     
     func imageViewWithAnimeBanner() -> UIImageView {
-        let imageView = UIImageView()
-        if let url = URL(string: self.anime?.bannerURL ?? "") {
+        if let _banner = self.anime?.banner {
+            let imageView = UIImageView(image: _banner)
+            imageView.contentMode = .scaleAspectFill
+            return imageView
+        } else if let url = URL(string: self.anime?.bannerURL ?? "") {
+            let imageView = UIImageView()
             imageView.af_setImage(withURL: url, placeholderImage: UIImage(), filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: UIImageView.ImageTransition.crossDissolve(0.24), runImageTransitionIfCached: false) { (response: DataResponse<UIImage>) in
                 if let _image = response.value {
+                    imageView.bounds = CGRect(origin: CGPoint.zero, size: _image.size)
+                    imageView.contentMode = .scaleAspectFill
                     self.anime?.banner = _image
                 } else {
                     print(response.result.error ?? "")
                 }
+                self.delegate?.animeDetailViewModelDidDownloadImage(animeDetailViewModel: self)
             }
+            return imageView
         }
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.image = self.anime?.image
+        let imageView = UIImageView()
+        let url = URL(string: self.anime!.imageURL!)!
+        imageView.af_setImage(withURL: url)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }
     
@@ -53,7 +65,7 @@ class AnimeDetailViewModel: NSObject {
                 cell.japaneseTitle = self.anime?.titleJapanese
                 cell.mediaType = self.anime?.mediaType
                 cell.score = self.anime?.averageScore
-                cell.seriesDescription = self.anime?.seriesDescription
+                cell.seriesDescription = self.anime?.seriesDescription?.replacingOccurrences(of: "<br>", with: "").replacingOccurrences(of: "<i>", with: "")
                 return cell
             }
         }
@@ -65,7 +77,7 @@ class AnimeDetailViewModel: NSObject {
             let attributedString = NSAttributedString(string: self.anime?.seriesDescription ?? "", attributes: [NSFontAttributeName : UIFont(name: "AvenirNext-Regular", size: 12.0) ?? UIFont()])
             let constrainedRect = CGSize(width: tableView.bounds.width, height: .greatestFiniteMagnitude)
             let boundingBox = attributedString.boundingRect(with: constrainedRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
-            return boundingBox.size.height + 60
+            return boundingBox.size.height + 80
         }
         return 0.0
     }

@@ -63,4 +63,8 @@ class APIServices: APIAuthentication {
     static func request(_ endpoint: ServiceEndpoints) -> DataRequest {
         return Alamofire.request(endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil)
     }
+    
+    static func download(_ endpoint: ServiceEndpoints, to destination: @escaping DownloadRequest.DownloadFileDestination) -> DownloadRequest {
+        return Alamofire.download(endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil, to: destination)
+    }
 }
