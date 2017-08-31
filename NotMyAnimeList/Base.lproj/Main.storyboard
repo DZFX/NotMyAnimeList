@@ -191,6 +191,30 @@
                                     <outlet property="seriesDescriptionLabel" destination="dCY-bh-wtk" id="dZM-JX-EHW"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimeCharacterCell" textLabel="mPy-pa-gPU" detailTextLabel="TRi-bU-50U" rowHeight="46" style="IBUITableViewCellStyleSubtitle" id="be8-5D-5y8" customClass="AnimeInfoCell" customModule="NotMyAnimeList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="199" width="375" height="46"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="be8-5D-5y8" id="yOJ-AR-x13">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mPy-pa-gPU">
+                                            <rect key="frame" x="15" y="6" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TRi-bU-50U">
+                                            <rect key="frame" x="15" y="26.5" width="33" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="QcF-QS-iw7" id="GT4-8J-l1b"/>
@@ -200,7 +224,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gop-s0-lBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2570" y="92"/>
+            <point key="canvasLocation" x="2568.8000000000002" y="91.304347826086968"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xKj-u1-iVA">

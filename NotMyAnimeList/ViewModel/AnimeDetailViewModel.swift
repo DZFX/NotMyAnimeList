@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireImage
 
 fileprivate let animeDetailCellIdentifier = "AnimeDetailCellIdentifier"
+fileprivate let animeCharacterCellIdentifier = "AnimeCharacterCell"
 
 protocol AnimeDetailViewModelDelegate: class {
     func animeDetailViewModelDidFinishDownloadingDetals(animeDetailViewModel: AnimeDetailViewModel)
@@ -21,6 +22,7 @@ class AnimeDetailViewModel: NSObject {
 
     var anime: Anime?
     weak var delegate: AnimeDetailViewModelDelegate?
+    var sectionTitles = ["Info", "Characters"]
     
     func downloadData() {
         self.anime?.downloadFullDetail(completion: { (anime, error) in
@@ -58,18 +60,41 @@ class AnimeDetailViewModel: NSObject {
         return imageView
     }
     
-    func tableView(_ tableView: UITableView, infoCellForRowAt indexPath: IndexPath) -> AnimeInfoCell {
-        if indexPath.section == 0 {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: animeDetailCellIdentifier) as? AnimeInfoCell {
-                cell.romajiTitle = self.anime?.titleRomaji
-                cell.japaneseTitle = self.anime?.titleJapanese
-                cell.mediaType = self.anime?.mediaType
-                cell.score = self.anime?.averageScore
-                cell.seriesDescription = self.anime?.seriesDescription?.replacingOccurrences(of: "<br>", with: "").replacingOccurrences(of: "<i>", with: "")
-                return cell
-            }
+    func tableView(_ tableView: UITableView, animeInfoCellForRowAt indexPath: IndexPath) -> AnimeInfoCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: animeDetailCellIdentifier) as? AnimeInfoCell {
+            cell.romajiTitle = self.anime?.titleRomaji
+            cell.japaneseTitle = self.anime?.titleJapanese
+            cell.mediaType = self.anime?.mediaType
+            cell.score = self.anime?.averageScore
+            cell.seriesDescription = self.anime?.seriesDescription?.replacingOccurrences(of: "<br>", with: "").replacingOccurrences(of: "<i>", with: "")
+            return cell
         }
         return AnimeInfoCell()
+    }
+    
+    func tableView(_ tableView: UITableView, defaultCellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: animeCharacterCellIdentifier) {
+            if let character = self.anime?.characters[indexPath.row] {
+                cell.textLabel?.text = character.fullName()
+                cell.detailTextLabel?.text = character.role ?? ""
+                cell.imageView?.af_setImage(withURL: URL(string: character.imageURL!)!)
+            }
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, infoCellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            return self.tableView(tableView, animeInfoCellForRowAt: indexPath)
+        } else if indexPath.section == 1 {
+            return self.tableView(tableView, defaultCellForRowAt: indexPath)
+        }
+        return UITableViewCell()
+    }
+    
+    func titleFor(section: Int) -> String {
+        return self.sectionTitles[section]
     }
     
     func tableView(_ tableView: UITableView, infoHeighForRowAt indexPath: IndexPath) -> CGFloat {
@@ -78,6 +103,8 @@ class AnimeDetailViewModel: NSObject {
             let constrainedRect = CGSize(width: tableView.bounds.width, height: .greatestFiniteMagnitude)
             let boundingBox = attributedString.boundingRect(with: constrainedRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
             return boundingBox.size.height + 80
+        } else if indexPath.section == 1 {
+            return 60.0
         }
         return 0.0
     }

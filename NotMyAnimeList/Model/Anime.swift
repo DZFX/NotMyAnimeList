@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import ObjectMapper
+import ObjectMapper_Realm
 
 class Anime: Object {
 
@@ -40,6 +41,7 @@ class Anime: Object {
     }
     
     let _backingGenres = List<RealmString>()
+    var characters = List<Character>()
     
     // MARK: - Full detail
     dynamic var seriesDescription: String?
@@ -97,5 +99,7 @@ extension Anime: Mappable {
         
         self.totalEpisodes <- (map["total_episodes"], transformOfInt())
         self.bannerURL <- map["image_url_banner"]
+        
+        self.characters <- (map["characters"], ListTransform<Character>())
     }
 }

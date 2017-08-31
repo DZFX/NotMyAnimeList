@@ -34,13 +34,16 @@ class AnimeDetailViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return self.animeDetailViewModel.sectionTitles.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of row
         if section == 0 {
             return 1
+        }
+        if section == 1 {
+            return self.animeDetailViewModel.anime?.characters.count ?? 0
         }
         return 0
     }
@@ -54,6 +57,9 @@ class AnimeDetailViewController: UITableViewController {
         return self.animeDetailViewModel.tableView(tableView, infoHeighForRowAt: indexPath)
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.animeDetailViewModel.titleFor(section: section)
+    }
     /*
     // MARK: - Navigation
 

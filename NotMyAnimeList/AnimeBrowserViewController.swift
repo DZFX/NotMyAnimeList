@@ -41,6 +41,10 @@ class AnimeBrowserViewController: UICollectionViewController {
             animeDetailVC.animeDetailViewModel.anime = sender as? Anime
         }
     }
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        self.animeBrowserCollectionView.reloadData()
+    }
 }
 
 extension AnimeBrowserViewController: SectionedCollectionViewDataSource {

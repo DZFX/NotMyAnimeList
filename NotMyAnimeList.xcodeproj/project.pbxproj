@@ -25,6 +25,7 @@
 		BF615CAA1F572BCE00568711 /* AnimeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF615CA91F572BCE00568711 /* AnimeInfoCell.swift */; };
 		BF615CAC1F572D1800568711 /* AnimeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF615CAB1F572D1800568711 /* AnimeDetailViewController.swift */; };
 		BF615CAE1F572ED000568711 /* AnimeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF615CAD1F572ED000568711 /* AnimeDetailViewModel.swift */; };
+		BF615CB11F5786CC00568711 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF615CB01F5786CC00568711 /* Character.swift */; };
 		BF62EB5B1F52C609005EF425 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF62EB5A1F52C609005EF425 /* Anime.swift */; };
 		BF6356241F541592005F172C /* SectionedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6356231F541592005F172C /* SectionedCollectionView.swift */; };
 		BF6356261F54273B005F172C /* SectionedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6356251F54273B005F172C /* SectionedCollectionViewCell.swift */; };
@@ -57,6 +58,7 @@
 		BF615CA91F572BCE00568711 /* AnimeInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimeInfoCell.swift; path = View/AnimeInfoCell.swift; sourceTree = "<group>"; };
 		BF615CAB1F572D1800568711 /* AnimeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimeDetailViewController.swift; path = Controller/AnimeDetailViewController.swift; sourceTree = "<group>"; };
 		BF615CAD1F572ED000568711 /* AnimeDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimeDetailViewModel.swift; path = ViewModel/AnimeDetailViewModel.swift; sourceTree = "<group>"; };
+		BF615CB01F5786CC00568711 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Character.swift; path = Model/CharacterModel/Character.swift; sourceTree = "<group>"; };
 		BF62EB5A1F52C609005EF425 /* Anime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Anime.swift; path = Model/Anime.swift; sourceTree = "<group>"; };
 		BF6356231F541592005F172C /* SectionedCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionedCollectionView.swift; path = View/SectionedCollectionView.swift; sourceTree = "<group>"; };
 		BF6356251F54273B005F172C /* SectionedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionedCollectionViewCell.swift; path = View/SectionedCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -175,9 +177,18 @@
 			name = ResponseModels;
 			sourceTree = "<group>";
 		};
+		BF615CAF1F5786AC00568711 /* CharacterModel */ = {
+			isa = PBXGroup;
+			children = (
+				BF615CB01F5786CC00568711 /* Character.swift */,
+			);
+			name = CharacterModel;
+			sourceTree = "<group>";
+		};
 		BF62EB531F52C42E005EF425 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF615CAF1F5786AC00568711 /* CharacterModel */,
 				BF194E761F54EB0800B0228C /* AnimeModel */,
 				BF194E6F1F54CEE800B0228C /* GenreModel */,
 				BF284BA81F54A4D400FB15AA /* ResponseModels */,
@@ -343,6 +354,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -354,6 +366,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -398,6 +411,7 @@
 				BF194E7A1F551F2F00B0228C /* RealmExtensions.swift in Sources */,
 				BFF5D4951F5493260008AF88 /* APIBase.swift in Sources */,
 				BF194E781F54EB2400B0228C /* Anime+Networking.swift in Sources */,
+				BF615CB11F5786CC00568711 /* Character.swift in Sources */,
 				BF194E751F54DCC100B0228C /* BrowseRequest.swift in Sources */,
 				BF284BAA1F54A4ED00FB15AA /* AccessTokenResponse.swift in Sources */,
 				BF62EB5B1F52C609005EF425 /* Anime.swift in Sources */,
