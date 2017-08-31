@@ -124,11 +124,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimeDetailCellIdentifier" rowHeight="171" id="anX-pb-AUq" customClass="AnimeInfoCell" customModule="NotMyAnimeList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AnimeDetailCellIdentifier" rowHeight="171" id="anX-pb-AUq" customClass="AnimeInfoCell" customModule="NotMyAnimeList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="171"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="anX-pb-AUq" id="zMG-YB-ELk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="170.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Romaji Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Co9-Wg-xIc">
@@ -191,7 +191,7 @@
                                     <outlet property="seriesDescriptionLabel" destination="dCY-bh-wtk" id="dZM-JX-EHW"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimeCharacterCell" textLabel="mPy-pa-gPU" detailTextLabel="TRi-bU-50U" rowHeight="46" style="IBUITableViewCellStyleSubtitle" id="be8-5D-5y8" customClass="AnimeInfoCell" customModule="NotMyAnimeList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AnimeCharacterCell" textLabel="mPy-pa-gPU" detailTextLabel="TRi-bU-50U" rowHeight="46" style="IBUITableViewCellStyleSubtitle" id="be8-5D-5y8" customClass="AnimeInfoCell" customModule="NotMyAnimeList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="199" width="375" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="be8-5D-5y8" id="yOJ-AR-x13">

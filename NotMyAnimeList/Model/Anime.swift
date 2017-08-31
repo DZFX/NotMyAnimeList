@@ -48,6 +48,7 @@ class Anime: Object {
     dynamic var bannerURL: String?
     var banner: UIImage?
     dynamic var totalEpisodes: String?
+    dynamic var duration: String?
     
     convenience init(name: String) {
         self.init()
@@ -64,6 +65,28 @@ class Anime: Object {
     
     override class func ignoredProperties() -> [String] {
         return ["genres","image", "banner"]
+    }
+    
+    func mediaTypeAndRunTime() -> String {
+        var finalString = String()
+        if let _mediaType = self.mediaType {
+            finalString.append(_mediaType)
+        }
+        
+        if let _episodes = self.totalEpisodes {
+            if finalString.characters.count > 0 {
+                finalString.append("  ")
+            }
+            finalString.append("\(_episodes) episode(s)")
+        }
+        
+        if let _duration = self.duration {
+            if finalString.characters.count > 0 {
+                finalString.append("  ")
+            }
+            finalString.append("\(_duration) mins")
+        }
+        return finalString
     }
     
     fileprivate func transformOfInt() -> TransformOf<String, Int> {
@@ -97,6 +120,7 @@ extension Anime: Mappable {
         self.averageScore <- (map["average_score"], transformOfDouble())
         self.imageURL <- map["image_url_lge"]
         
+        self.duration <- (map["duration"], transformOfInt())
         self.totalEpisodes <- (map["total_episodes"], transformOfInt())
         self.bannerURL <- map["image_url_banner"]
         

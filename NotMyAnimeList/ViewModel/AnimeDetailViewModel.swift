@@ -64,7 +64,7 @@ class AnimeDetailViewModel: NSObject {
         if let cell = tableView.dequeueReusableCell(withIdentifier: animeDetailCellIdentifier) as? AnimeInfoCell {
             cell.romajiTitle = self.anime?.titleRomaji
             cell.japaneseTitle = self.anime?.titleJapanese
-            cell.mediaType = self.anime?.mediaType
+            cell.mediaType = self.anime?.mediaTypeAndRunTime() ?? ""
             cell.score = self.anime?.averageScore
             cell.seriesDescription = self.anime?.seriesDescription?.replacingOccurrences(of: "<br>", with: "").replacingOccurrences(of: "<i>", with: "")
             return cell
